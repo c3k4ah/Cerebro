@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:note_book/views/widgets/colors.dart';
 import 'package:note_book/views/widgets/favorites_btt.dart';
 
 class Home extends StatelessWidget {
@@ -79,6 +80,7 @@ class Home extends StatelessWidget {
               margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
               height: Get.height * .27,
               decoration: BoxDecoration(
+                  color: blueAccent,
                   border: Border.all(width: 1.5, color: Colors.orange),
                   borderRadius: BorderRadius.circular(15)),
               child: Column(
@@ -165,7 +167,115 @@ class Home extends StatelessWidget {
                   ),
                 ],
               ),
-            )
+            ),
+            Container(
+              padding: EdgeInsets.all(15),
+              margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+              height: Get.height * .14,
+              decoration: BoxDecoration(
+                  color: pink, borderRadius: BorderRadius.circular(15)),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Text(
+                    "Comment déssiner un wireframe profesionnelle ?",
+                    style: TextStyle(fontSize: 15, color: Colors.black),
+                  ),
+                  SizedBox(
+                    width: Get.width,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: const [
+                            Text(
+                              "Design",
+                              style: TextStyle(
+                                  color: Colors.black45,
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            SizedBox(
+                              width: 8,
+                            ),
+                            Text(
+                              "Wireframe",
+                              style: TextStyle(
+                                  color: Colors.black45,
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          child: Text(
+                            "2022/01/25",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 10,
+                                fontWeight: FontWeight.normal),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.all(15),
+              margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+              height: Get.height * .14,
+              decoration: BoxDecoration(
+                  color: green, borderRadius: BorderRadius.circular(15)),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Text(
+                    "Comment déssiner un wireframe profesionnelle ?",
+                    style: TextStyle(fontSize: 15, color: Colors.black),
+                  ),
+                  SizedBox(
+                    width: Get.width,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: const [
+                            Text(
+                              "Design",
+                              style: TextStyle(
+                                  color: Colors.black45,
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            SizedBox(
+                              width: 8,
+                            ),
+                            Text(
+                              "Wireframe",
+                              style: TextStyle(
+                                  color: Colors.black45,
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          child: Text(
+                            "2022/01/25",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 10,
+                                fontWeight: FontWeight.normal),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
