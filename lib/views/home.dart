@@ -6,8 +6,20 @@ import 'package:iconsax/iconsax.dart';
 import 'package:note_book/views/widgets/colors.dart';
 import 'package:note_book/views/widgets/favorites_btt.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  int _selectedIndex = 0;
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -182,10 +194,17 @@ class Home extends StatelessWidget {
                   color: pink, borderRadius: BorderRadius.circular(15)),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "Comment déssiner un wireframe profesionnelle ?",
-                    style: TextStyle(fontSize: 15, color: Colors.black),
+                  Flexible(
+                    child: Text(
+                      "Chemin vers le succes rapidement",
+                      maxLines: 2,
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.black,
+                          overflow: TextOverflow.ellipsis),
+                    ),
                   ),
                   SizedBox(
                     width: Get.width,
@@ -195,7 +214,7 @@ class Home extends StatelessWidget {
                         Row(
                           children: const [
                             Text(
-                              "Design",
+                              "Succes",
                               style: TextStyle(
                                   color: Colors.black45,
                                   fontSize: 10,
@@ -205,7 +224,7 @@ class Home extends StatelessWidget {
                               width: 8,
                             ),
                             Text(
-                              "Wireframe",
+                              "facile",
                               style: TextStyle(
                                   color: Colors.black45,
                                   fontSize: 10,
@@ -215,7 +234,7 @@ class Home extends StatelessWidget {
                         ),
                         SizedBox(
                           child: Text(
-                            "2022/01/25",
+                            "2022/08/5",
                             style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 10,
@@ -236,10 +255,17 @@ class Home extends StatelessWidget {
                   color: green, borderRadius: BorderRadius.circular(15)),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "Comment déssiner un wireframe profesionnelle ?",
-                    style: TextStyle(fontSize: 15, color: Colors.black),
+                  Flexible(
+                    child: Text(
+                      "Comment déssiner un wireframe profesionnelle ?",
+                      maxLines: 2,
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.black,
+                          overflow: TextOverflow.ellipsis),
+                    ),
                   ),
                   SizedBox(
                     width: Get.width,
@@ -305,6 +331,9 @@ class Home extends StatelessWidget {
           height: Get.height * .1,
           decoration: BoxDecoration(),
           child: BottomNavigationBar(
+              currentIndex: _selectedIndex,
+              selectedItemColor: Colors.amber[800],
+              onTap: _onItemTapped,
               type: BottomNavigationBarType.fixed,
               items: const <BottomNavigationBarItem>[
                 BottomNavigationBarItem(

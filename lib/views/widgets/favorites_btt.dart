@@ -1,6 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, sized_box_for_whitespace, prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:note_book/models/data.dart';
 
 class MyCustomButton extends StatelessWidget {
@@ -21,6 +22,7 @@ class MyCustomButton extends StatelessWidget {
       child: InkWell(
         onTap: onTap,
         child: Container(
+          width: Get.width * .305,
           alignment: Alignment.center,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),

@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'Cérebro',
       theme: ThemeData(fontFamily: "Cream"),
       debugShowCheckedModeBanner: false,
-      initialRoute: '/',
+      initialRoute: '/categories',
       routes: {
         '/': (context) => const Home(),
         '/categories': (context) => const Categorie(),
