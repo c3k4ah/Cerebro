@@ -64,7 +64,7 @@ class Categorie extends StatelessWidget {
             ),
             Container(
               width: Get.width,
-              height: Get.height * .7,
+              height: Get.height * .65,
               child: OrientationBuilder(builder: (context, orientation) {
                 return GridView.count(
                   crossAxisCount: 2,
