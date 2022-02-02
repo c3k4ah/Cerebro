@@ -359,6 +359,67 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
+          Container(
+            padding: EdgeInsets.all(15),
+            margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+            height: Get.height * .14,
+            decoration: BoxDecoration(
+                color: green, borderRadius: BorderRadius.circular(15)),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Flexible(
+                  child: Text(
+                    "Comment déssiner un wireframe profesionnelle ?",
+                    maxLines: 2,
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        overflow: TextOverflow.ellipsis),
+                  ),
+                ),
+                SizedBox(
+                  width: Get.width,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: const [
+                          Text(
+                            "Design",
+                            style: TextStyle(
+                                color: Colors.black45,
+                                fontSize: 10,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(
+                            width: 8,
+                          ),
+                          Text(
+                            "Wireframe",
+                            style: TextStyle(
+                                color: Colors.black45,
+                                fontSize: 10,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        child: Text(
+                          "2022/01/25",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 10,
+                              fontWeight: FontWeight.normal),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
