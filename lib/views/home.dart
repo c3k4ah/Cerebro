@@ -12,7 +12,13 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       body: Container(
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(25),
+                bottomRight: Radius.circular(25))),
         child: ListView(
           children: [
             Container(
@@ -282,9 +288,47 @@ class Home extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         tooltip: 'add',
+        backgroundColor: Colors.black,
         child: const Icon(
           Iconsax.add4,
           size: 50,
+        ),
+      ),
+      bottomNavigationBar: Theme(
+        data: Theme.of(context).copyWith(
+            canvasColor: Colors.black,
+            unselectedWidgetColor: Colors.white,
+            textTheme: Theme.of(context)
+                .textTheme
+                .copyWith(caption: TextStyle(color: Colors.grey))),
+        child: Container(
+          height: Get.height * .1,
+          decoration: BoxDecoration(),
+          child: BottomNavigationBar(
+              type: BottomNavigationBarType.fixed,
+              items: const <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Iconsax.home,
+                    color: Colors.white,
+                  ),
+                  label: 'Home',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Iconsax.archive_book4,
+                    color: Colors.white,
+                  ),
+                  label: 'Categories',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Iconsax.setting_34,
+                    color: Colors.white,
+                  ),
+                  label: 'Settings',
+                ),
+              ]),
         ),
       ),
     );
