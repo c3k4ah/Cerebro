@@ -21,20 +21,19 @@ class MyCustomButton extends StatelessWidget {
       child: InkWell(
         onTap: onTap,
         child: Container(
-          width: 115,
           alignment: Alignment.center,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             color: !active ? null : Colors.black,
           ),
           padding: EdgeInsets.symmetric(horizontal: 21.0, vertical: 5.0),
-          margin: EdgeInsets.symmetric(horizontal: 5.0, vertical: 7.0),
+          //margin: EdgeInsets.symmetric(horizontal: 5.0, vertical: 7.0),
           child: Text(
             title,
             style: TextStyle(
-                color: active ? Colors.white : Colors.grey,
+                color: active ? Colors.white : Colors.grey.shade600,
                 fontWeight: FontWeight.normal,
-                fontSize: 15,
+                fontSize: 12,
                 overflow: TextOverflow.ellipsis),
           ),
         ),
