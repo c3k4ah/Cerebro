@@ -8,7 +8,8 @@ import 'package:note_book/views/widgets/colors.dart';
 class NewNote extends StatefulWidget {
   const NewNote({Key? key}) : super(key: key);
 //A RETENIR !! Flexible(), Expanded() n'ont que 3 parents possible
-//qui sont :Row() dans le cas horizontal,Column() dans le cas vertical ,Flexible() peut prendre les deux
+//qui sont :Row() dans le cas horizontal,Column() dans le cas vertical ,Flex() peut prendre les deux
+
   @override
   State<NewNote> createState() => _NewNoteState();
 }
@@ -137,32 +138,30 @@ class _NewNoteState extends State<NewNote> {
                 decoration: BoxDecoration(
                     color: Colors.black,
                     borderRadius: BorderRadius.circular(10)),
-                child: Row(children: [
-                  Flexible(
-                    child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: textformat.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          return GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                _isSelected = index;
-                              });
-                            },
-                            child: SizedBox(
-                              width: 40,
-                              height: 25,
-                              child: Icon(
-                                textformat[index],
-                                color: _isSelected == index
-                                    ? Colors.blue
-                                    : Colors.white,
-                              ),
-                            ),
-                          );
-                        }),
-                  ),
-                ]))
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Flexible(
+                        child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: textformat.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return IconButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      _isSelected = index;
+                                    });
+                                  },
+                                  iconSize: 35,
+                                  icon: Icon(
+                                    textformat[index],
+                                    color: _isSelected == index
+                                        ? Colors.blue
+                                        : Colors.white,
+                                  ));
+                            }),
+                      ),
+                    ]))
           ],
         ),
       ),
