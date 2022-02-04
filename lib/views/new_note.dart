@@ -7,7 +7,8 @@ import 'package:note_book/views/widgets/colors.dart';
 
 class NewNote extends StatefulWidget {
   const NewNote({Key? key}) : super(key: key);
-
+//A RETENIR !! Flexible(), Expanded() n'ont que 3 parents possible
+//qui sont :Row() dans le cas horizontal,Column() dans le cas vertical ,Flexible() peut prendre les deux
   @override
   State<NewNote> createState() => _NewNoteState();
 }
@@ -61,12 +62,10 @@ class _NewNoteState extends State<NewNote> {
               margin: const EdgeInsets.symmetric(horizontal: 15),
               width: Get.width,
               height: 40,
-              child: const Expanded(
-                child: TextField(
-                  decoration: InputDecoration.collapsed(
-                    border: InputBorder.none,
-                    hintText: '',
-                  ),
+              child: const TextField(
+                decoration: InputDecoration.collapsed(
+                  border: InputBorder.none,
+                  hintText: '',
                 ),
               ),
             ),
@@ -80,21 +79,18 @@ class _NewNoteState extends State<NewNote> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  SizedBox(
-                    width: Get.width * .6,
-                    child: Expanded(
-                      child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: 4,
-                          itemBuilder: (BuildContext context, int index) {
-                            return const Center(
-                              child: Text("Motivation, ",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  )),
-                            );
-                          }),
-                    ),
+                  Expanded(
+                    child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: 4,
+                        itemBuilder: (BuildContext context, int index) {
+                          return const Center(
+                            child: Text("Motivation, ",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                )),
+                          );
+                        }),
                   ),
                   SizedBox(
                     height: 30,
@@ -123,43 +119,50 @@ class _NewNoteState extends State<NewNote> {
               margin: const EdgeInsets.symmetric(horizontal: 15),
               width: Get.width,
               height: Get.height * .55,
-              child: const Expanded(
-                child: TextField(
-                  keyboardType: TextInputType.multiline,
-                  maxLength: null,
-                  maxLines: null,
-                  decoration: InputDecoration.collapsed(
-                    border: InputBorder.none,
-                    hintText: '',
-                  ),
+              child: const TextField(
+                keyboardType: TextInputType.multiline,
+                maxLength: null,
+                maxLines: null,
+                decoration: InputDecoration.collapsed(
+                  border: InputBorder.none,
+                  hintText: '',
                 ),
               ),
             ),
             Container(
-              margin: const EdgeInsets.all(15),
-              width: Get.width,
-              height: 80,
-              decoration: BoxDecoration(
-                  color: Colors.black, borderRadius: BorderRadius.circular(10)),
-              child: ListView.builder(
-                  padding: const EdgeInsets.all(15),
-                  scrollDirection: Axis.horizontal,
-                  itemCount: textformat.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return IconButton(
-                        iconSize: 30,
-                        onPressed: () {
-                          setState(() {
-                            _isSelected = index;
-                          });
-                        },
-                        icon: Icon(
-                          textformat[index],
-                          color:
-                              _isSelected == index ? Colors.blue : Colors.white,
-                        ));
-                  }),
-            )
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                margin: const EdgeInsets.all(15),
+                width: Get.width,
+                height: 80,
+                decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(10)),
+                child: Row(children: [
+                  Flexible(
+                    child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: textformat.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                _isSelected = index;
+                              });
+                            },
+                            child: SizedBox(
+                              width: 40,
+                              height: 25,
+                              child: Icon(
+                                textformat[index],
+                                color: _isSelected == index
+                                    ? Colors.blue
+                                    : Colors.white,
+                              ),
+                            ),
+                          );
+                        }),
+                  ),
+                ]))
           ],
         ),
       ),
