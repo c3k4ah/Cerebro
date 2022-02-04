@@ -1,10 +1,19 @@
+// ignore_for_file: unrelated_type_equality_checks
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:note_book/views/widgets/colors.dart';
 
-class NewNote extends StatelessWidget {
+class NewNote extends StatefulWidget {
   const NewNote({Key? key}) : super(key: key);
+
+  @override
+  State<NewNote> createState() => _NewNoteState();
+}
+
+class _NewNoteState extends State<NewNote> {
+  int _isSelected = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -132,53 +141,24 @@ class NewNote extends StatelessWidget {
               height: 80,
               decoration: BoxDecoration(
                   color: Colors.black, borderRadius: BorderRadius.circular(10)),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  IconButton(
-                      iconSize: 30,
-                      onPressed: () {},
-                      icon: const Icon(
-                        Iconsax.text_bold5,
-                        color: Colors.blue,
-                      )),
-                  IconButton(
-                      iconSize: 30,
-                      onPressed: () {},
-                      icon: const Icon(
-                        Iconsax.text_italic5,
-                        color: Colors.blue,
-                      )),
-                  IconButton(
-                      iconSize: 30,
-                      onPressed: () {},
-                      icon: const Icon(
-                        Iconsax.text_underline5,
-                        color: Colors.blue,
-                      )),
-                  IconButton(
-                      iconSize: 30,
-                      onPressed: () {},
-                      icon: const Icon(
-                        Iconsax.textalign_justifycenter5,
-                        color: Colors.blue,
-                      )),
-                  IconButton(
-                      iconSize: 30,
-                      onPressed: () {},
-                      icon: const Icon(
-                        Iconsax.bucket_square4,
-                        color: Colors.blue,
-                      )),
-                  IconButton(
-                      iconSize: 30,
-                      onPressed: () {},
-                      icon: const Icon(
-                        Iconsax.link_square5,
-                        color: Colors.blue,
-                      )),
-                ],
-              ),
+              child: ListView.builder(
+                  padding: const EdgeInsets.all(15),
+                  scrollDirection: Axis.horizontal,
+                  itemCount: textformat.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return IconButton(
+                        iconSize: 30,
+                        onPressed: () {
+                          setState(() {
+                            _isSelected = index;
+                          });
+                        },
+                        icon: Icon(
+                          textformat[index],
+                          color:
+                              _isSelected == index ? Colors.blue : Colors.white,
+                        ));
+                  }),
             )
           ],
         ),
@@ -186,3 +166,12 @@ class NewNote extends StatelessWidget {
     );
   }
 }
+
+List<IconData> textformat = [
+  Iconsax.text_bold5,
+  Iconsax.text_italic5,
+  Iconsax.text_underline5,
+  Iconsax.textalign_justifycenter5,
+  Iconsax.bucket_square4,
+  Iconsax.link_square5,
+];
