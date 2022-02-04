@@ -63,11 +63,48 @@ class NewNote extends StatelessWidget {
             ),
             Container(
               margin: const EdgeInsets.all(15),
+              padding: const EdgeInsets.symmetric(horizontal: 7),
               width: Get.width,
-              height: 50,
+              height: 40,
               decoration: BoxDecoration(
-                  color: Colors.blue, borderRadius: BorderRadius.circular(7)),
-              child: Row(),
+                  color: Colors.grey, borderRadius: BorderRadius.circular(7)),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SizedBox(
+                    width: Get.width * .6,
+                    child: Expanded(
+                      child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: 4,
+                          itemBuilder: (BuildContext context, int index) {
+                            return const Center(
+                              child: Text("Motivation, ",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                  )),
+                            );
+                          }),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 30,
+                    child: MaterialButton(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      color: Colors.blue,
+                      minWidth: Get.width * .2,
+                      onPressed: () {},
+                      child: const Center(
+                        child: Text("Add label",
+                            style: TextStyle(
+                              color: Colors.white,
+                            )),
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
