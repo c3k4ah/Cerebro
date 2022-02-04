@@ -91,7 +91,7 @@ class NewNote extends StatelessWidget {
                     height: 30,
                     child: MaterialButton(
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)),
+                          borderRadius: BorderRadius.circular(8)),
                       color: Colors.blue,
                       minWidth: Get.width * .2,
                       onPressed: () {},
@@ -126,6 +126,60 @@ class NewNote extends StatelessWidget {
                 ),
               ),
             ),
+            Container(
+              margin: const EdgeInsets.all(15),
+              width: Get.width,
+              height: 80,
+              decoration: BoxDecoration(
+                  color: Colors.black, borderRadius: BorderRadius.circular(10)),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  IconButton(
+                      iconSize: 30,
+                      onPressed: () {},
+                      icon: const Icon(
+                        Iconsax.text_bold5,
+                        color: Colors.blue,
+                      )),
+                  IconButton(
+                      iconSize: 30,
+                      onPressed: () {},
+                      icon: const Icon(
+                        Iconsax.text_italic5,
+                        color: Colors.blue,
+                      )),
+                  IconButton(
+                      iconSize: 30,
+                      onPressed: () {},
+                      icon: const Icon(
+                        Iconsax.text_underline5,
+                        color: Colors.blue,
+                      )),
+                  IconButton(
+                      iconSize: 30,
+                      onPressed: () {},
+                      icon: const Icon(
+                        Iconsax.textalign_justifycenter5,
+                        color: Colors.blue,
+                      )),
+                  IconButton(
+                      iconSize: 30,
+                      onPressed: () {},
+                      icon: const Icon(
+                        Iconsax.bucket_square4,
+                        color: Colors.blue,
+                      )),
+                  IconButton(
+                      iconSize: 30,
+                      onPressed: () {},
+                      icon: const Icon(
+                        Iconsax.link_square5,
+                        color: Colors.blue,
+                      )),
+                ],
+              ),
+            )
           ],
         ),
       ),
