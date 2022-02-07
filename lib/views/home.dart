@@ -252,7 +252,7 @@ class HomeScreen extends StatelessWidget {
                     "Chemin vers le succes rapidement",
                     maxLines: 2,
                     style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 17,
                         color: Colors.black,
                         overflow: TextOverflow.ellipsis),
                   ),
@@ -313,7 +313,7 @@ class HomeScreen extends StatelessWidget {
                     "Comment déssiner un wireframe profesionnelle ?",
                     maxLines: 2,
                     style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 17,
                         color: Colors.black,
                         overflow: TextOverflow.ellipsis),
                   ),
