@@ -121,7 +121,9 @@ class _NewNoteState extends State<NewNote> {
                                       style: TextStyle(color: Colors.white),
                                     ),
                                     IconButton(
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
                                         icon: Icon(
                                           Iconsax.close_circle,
                                           color: Colors.redAccent,

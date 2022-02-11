@@ -1,8 +1,11 @@
 // ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
 
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:note_book/views/widgets/colors.dart';
 
 class Categorie extends StatelessWidget {
   const Categorie({Key? key}) : super(key: key);
@@ -31,7 +34,110 @@ class Categorie extends StatelessWidget {
                         fontSize: 30,
                         fontWeight: FontWeight.normal),
                   ),
-                  IconButton(onPressed: () {}, icon: Icon(Iconsax.add_circle4)),
+                  IconButton(
+                      onPressed: () {
+                        showDialog(
+                            context: context,
+                            builder: (context) {
+                              return BackdropFilter(
+                                filter:
+                                    ImageFilter.blur(sigmaX: 1.5, sigmaY: 1.5),
+                                child: SimpleDialog(
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20)),
+                                  backgroundColor: Colors.white,
+                                  title: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        'Add categorie',
+                                        style: TextStyle(color: grisSombre),
+                                      ),
+                                      IconButton(
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                          },
+                                          icon: Icon(
+                                            Iconsax.close_circle,
+                                            color: Colors.redAccent,
+                                          )),
+                                    ],
+                                  ),
+                                  children: [
+                                    SingleChildScrollView(
+                                      child: Column(
+                                        children: const [
+                                          ListTile(
+                                            leading: Icon(
+                                              Iconsax.folder_25,
+                                              color: Colors.orange,
+                                            ),
+                                            title: Text(
+                                              "Cuisine(05)",
+                                              style: TextStyle(
+                                                  color: Colors.black),
+                                            ),
+                                            trailing: Icon(
+                                              Iconsax.trash,
+                                              color: Colors.red,
+                                            ),
+                                          ),
+                                          ListTile(
+                                            leading: Icon(
+                                              Iconsax.folder_25,
+                                              color: Colors.orange,
+                                            ),
+                                            title: Text(
+                                              "Philos(11)",
+                                              style: TextStyle(
+                                                  color: Colors.black),
+                                            ),
+                                            trailing: Icon(
+                                              Iconsax.trash,
+                                              color: Colors.red,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Container(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 5, vertical: 10),
+                                          decoration: BoxDecoration(
+                                              color: const Color(0xFFD3D3D3),
+                                              borderRadius:
+                                                  BorderRadius.circular(7)),
+                                          margin: const EdgeInsets.symmetric(
+                                              horizontal: 15),
+                                          width: Get.width * .5,
+                                          height: 30,
+                                          child: const TextField(
+                                            decoration:
+                                                InputDecoration.collapsed(
+                                              border: InputBorder.none,
+                                              hintText: '',
+                                            ),
+                                          ),
+                                        ),
+                                        IconButton(
+                                            onPressed: () {},
+                                            icon: Icon(
+                                              Iconsax.tick_square4,
+                                              color: Colors.blue,
+                                            ))
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              );
+                            });
+                      },
+                      icon: Icon(Iconsax.add_circle4)),
                 ],
               ),
             ),
