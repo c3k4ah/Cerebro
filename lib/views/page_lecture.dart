@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:note_book/views/widgets/colors.dart';
 
 class ReadPage extends StatelessWidget {
   const ReadPage({Key? key}) : super(key: key);
@@ -55,7 +54,7 @@ class ReadPage extends StatelessWidget {
             color: Colors.white,
             borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(40), topRight: Radius.circular(40))),
-        child: Stack(
+        child: Column(
           children: [
             Expanded(
               child: Flex(direction: Axis.vertical, children: [
@@ -80,7 +79,7 @@ class ReadPage extends StatelessWidget {
                 ),
               ]),
             ),
-            Expanded(
+            /* Expanded(
               child: Align(
                 alignment: Alignment.bottomCenter,
                 child: Container(
@@ -111,7 +110,7 @@ class ReadPage extends StatelessWidget {
                   ),
                 ),
               ),
-            )
+            )*/
           ],
         ),
       ),

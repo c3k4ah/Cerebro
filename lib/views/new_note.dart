@@ -22,41 +22,35 @@ class _NewNoteState extends State<NewNote> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        leading: IconButton(
+            iconSize: 30,
+            onPressed: () {},
+            icon: const Icon(
+              Iconsax.trush_square,
+              color: Colors.red,
+            )),
+        title: Text(
+          "Create",
+          style: TextStyle(
+              color: Colors.black, fontSize: 30, fontWeight: FontWeight.normal),
+        ),
+        centerTitle: true,
+        actions: [
+          IconButton(
+              iconSize: 30,
+              onPressed: () {},
+              icon: const Icon(
+                Iconsax.tick_square,
+                color: Colors.blue,
+              )),
+        ],
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const SizedBox(
-              height: 30,
-            ),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 15),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                      iconSize: 30,
-                      onPressed: () {},
-                      icon: const Icon(
-                        Iconsax.trush_square,
-                        color: Colors.red,
-                      )),
-                  const Text(
-                    "Create",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 30,
-                        fontWeight: FontWeight.normal),
-                  ),
-                  IconButton(
-                      iconSize: 30,
-                      onPressed: () {},
-                      icon: const Icon(
-                        Iconsax.tick_square,
-                        color: Colors.blue,
-                      )),
-                ],
-              ),
-            ),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
               decoration: BoxDecoration(

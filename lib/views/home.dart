@@ -104,7 +104,10 @@ class HomeScreen extends StatelessWidget {
                     IconButton(
                         onPressed: () {}, icon: Icon(Iconsax.search_favorite)),
                     IconButton(
-                        onPressed: () {}, icon: Icon(Iconsax.add_square4))
+                        onPressed: () {
+                          Get.toNamed('/create');
+                        },
+                        icon: Icon(Iconsax.add_square4))
                   ],
                 )
               ],
