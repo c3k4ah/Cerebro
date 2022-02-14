@@ -321,7 +321,7 @@ class CategorieList extends StatelessWidget {
             ),
             Container(
               width: Get.width,
-              height: Get.height * .65,
+              height: Get.height * .75,
               child: OrientationBuilder(builder: (context, orientation) {
                 return ListView(
                   children: [
