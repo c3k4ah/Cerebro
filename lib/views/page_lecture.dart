@@ -16,7 +16,9 @@ class ReadPage extends StatelessWidget {
       backgroundColor: Colors.black,
       appBar: AppBar(
         leading: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Get.back();
+            },
             icon: Icon(
               Iconsax.back_square,
               color: Colors.green,

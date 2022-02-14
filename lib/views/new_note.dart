@@ -27,7 +27,9 @@ class _NewNoteState extends State<NewNote> {
         elevation: 0,
         leading: IconButton(
             iconSize: 30,
-            onPressed: () {},
+            onPressed: () {
+              Get.back();
+            },
             icon: const Icon(
               Iconsax.trush_square,
               color: Colors.red,
