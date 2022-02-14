@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
         '/splash': (context) => const Splash(),
         '/create': (context) => const NewNote(),
         '/read': (context) => const ReadPage(),
+        '/listCtg': (context) => const CategorieList()
       },
     );
   }
