@@ -1,12 +1,12 @@
 // ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:note_book/views/categories.dart';
 import 'package:note_book/views/note_page.dart';
 import 'package:note_book/views/widgets/colors.dart';
-import 'package:note_book/views/widgets/favorites_btt.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -74,9 +74,15 @@ class _HomeState extends State<Home> {
   }
 }
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int? groupValue = 0;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -115,11 +121,23 @@ class HomeScreen extends StatelessWidget {
           ),
           Container(
             width: Get.width,
-            height: 35,
-            margin: EdgeInsets.symmetric(horizontal: 15, vertical: 25),
-            decoration: BoxDecoration(
-                color: Colors.black12, borderRadius: BorderRadius.circular(10)),
-            child: CategoriesList(),
+            padding: const EdgeInsets.all(10),
+            child: CupertinoSlidingSegmentedControl<int>(
+              backgroundColor: CupertinoColors.black,
+              thumbColor: CupertinoColors.activeOrange,
+              padding: const EdgeInsets.all(8),
+              groupValue: groupValue,
+              children: {
+                0: takeText("Note"),
+                1: takeText("Hightlines"),
+                2: takeText("Favorites"),
+              },
+              onValueChanged: (value) {
+                setState(() {
+                  groupValue = value;
+                });
+              },
+            ),
           ),
           Container(
             width: Get.width,
@@ -430,6 +448,14 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  Widget takeText(String text) {
+    return Text(
+      text,
+      overflow: TextOverflow.ellipsis,
+      style: const TextStyle(fontSize: 22, color: Colors.white),
     );
   }
 }

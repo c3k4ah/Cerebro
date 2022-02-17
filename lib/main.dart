@@ -5,6 +5,7 @@ import 'package:note_book/views/home.dart';
 import 'package:note_book/views/new_note.dart';
 import 'package:note_book/views/note_page.dart';
 import 'package:note_book/views/page_lecture.dart';
+import 'package:note_book/views/settings.dart';
 import 'package:note_book/views/splash.dart';
 
 void main() {
@@ -28,7 +29,8 @@ class MyApp extends StatelessWidget {
         '/splash': (context) => const Splash(),
         '/create': (context) => const NewNote(),
         '/read': (context) => const ReadPage(),
-        '/listCtg': (context) => const CategorieList()
+        '/listCtg': (context) => const CategorieList(),
+        '/setting': (context) => const Setting()
       },
     );
   }
