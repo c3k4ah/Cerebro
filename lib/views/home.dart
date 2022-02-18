@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:note_book/views/categories.dart';
-import 'package:note_book/views/note_page.dart';
+import 'package:note_book/views/settings.dart';
 import 'package:note_book/views/widgets/colors.dart';
 
 class Home extends StatefulWidget {
@@ -18,7 +18,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int _selectedIndex = 0;
 
-  final _pageActu = [HomeScreen(), Categorie(), NotePage()];
+  final _pageActu = [HomeScreen(), Categorie(), Setting()];
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
