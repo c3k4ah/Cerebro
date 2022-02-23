@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:note_book/views/categories.dart';
-import 'package:note_book/views/note_page.dart';
+import 'package:note_book/views/settings.dart';
 import 'package:note_book/views/widgets/colors.dart';
 
 class Home extends StatefulWidget {
@@ -18,7 +18,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int _selectedIndex = 0;
 
-  final _pageActu = [HomeScreen(), Categorie(), NotePage()];
+  final _pageActu = [HomeScreen(), Categorie(), Setting()];
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -83,6 +83,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int? groupValue = 0;
+  bool searchBarHide = true;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -107,8 +108,40 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Row(
                   children: [
-                    IconButton(
-                        onPressed: () {}, icon: Icon(Iconsax.search_favorite)),
+                    searchBarHide
+                        ? IconButton(
+                            onPressed: () {
+                              setState(() {
+                                searchBarHide = !searchBarHide;
+                              });
+                            },
+                            icon: Icon(Iconsax.search_favorite))
+                        : Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 5),
+                            decoration: BoxDecoration(
+                                color: const Color(0xFFE6E6E6),
+                                borderRadius: BorderRadius.circular(7)),
+                            margin: const EdgeInsets.symmetric(horizontal: 15),
+                            width: Get.width * .4,
+                            height: 30,
+                            child: TextField(
+                              decoration: InputDecoration(
+                                suffixIcon: IconButton(
+                                  padding: EdgeInsets.all(0),
+                                  onPressed: () {
+                                    searchBarHide = !searchBarHide;
+                                  },
+                                  icon: Icon(
+                                    Iconsax.search_favorite,
+                                    size: 20,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                border: InputBorder.none,
+                                hintText: '',
+                              ),
+                            ),
+                          ),
                     IconButton(
                         onPressed: () {
                           Get.toNamed('/create');
