@@ -83,7 +83,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int? groupValue = 0;
-  bool searchBarHide = true;
+  bool _searchBarHide = true;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -108,11 +108,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Row(
                   children: [
-                    searchBarHide
+                    _searchBarHide
                         ? IconButton(
                             onPressed: () {
                               setState(() {
-                                searchBarHide = !searchBarHide;
+                                _searchBarHide = !_searchBarHide;
                               });
                             },
                             icon: Icon(Iconsax.search_favorite))
@@ -129,7 +129,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 suffixIcon: IconButton(
                                   padding: EdgeInsets.all(0),
                                   onPressed: () {
-                                    searchBarHide = !searchBarHide;
+                                    setState(() {
+                                      _searchBarHide = !_searchBarHide;
+                                    });
                                   },
                                   icon: Icon(
                                     Iconsax.search_favorite,
