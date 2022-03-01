@@ -116,33 +116,39 @@ class _HomeScreenState extends State<HomeScreen> {
                               });
                             },
                             icon: Icon(Iconsax.search_favorite))
-                        : Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 5),
-                            decoration: BoxDecoration(
-                                color: const Color(0xFFE6E6E6),
-                                borderRadius: BorderRadius.circular(7)),
-                            margin: const EdgeInsets.symmetric(horizontal: 15),
-                            width: Get.width * .4,
-                            height: 30,
-                            child: TextField(
-                              decoration: InputDecoration(
-                                suffixIcon: IconButton(
-                                  padding: EdgeInsets.all(0),
-                                  onPressed: () {
-                                    setState(() {
-                                      _searchBarHide = !_searchBarHide;
-                                    });
-                                  },
-                                  icon: Icon(
-                                    Iconsax.search_favorite,
-                                    size: 20,
-                                    color: Colors.black,
+                        : Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Container(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 5),
+                                decoration: BoxDecoration(
+                                    color: const Color(0xFFE6E6E6),
+                                    borderRadius: BorderRadius.circular(7)),
+                                margin:
+                                    const EdgeInsets.symmetric(horizontal: 15),
+                                width: Get.width * .3,
+                                height: 30,
+                                child: TextField(
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: '',
                                   ),
                                 ),
-                                border: InputBorder.none,
-                                hintText: '',
                               ),
-                            ),
+                              IconButton(
+                                padding: EdgeInsets.all(0),
+                                onPressed: () {
+                                  setState(() {
+                                    _searchBarHide = !_searchBarHide;
+                                  });
+                                },
+                                icon: Icon(
+                                  Iconsax.search_favorite,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ],
                           ),
                     IconButton(
                         onPressed: () {
